@@ -1,4 +1,4 @@
-package com.android.a2mvcdandagger.common.composition
+package com.android.a2mvcdandagger.common.dependencyinjection
 
 import android.app.Application
 import androidx.annotation.UiThread

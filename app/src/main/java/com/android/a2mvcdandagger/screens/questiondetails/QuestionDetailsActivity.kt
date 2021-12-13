@@ -11,32 +11,32 @@ import android.widget.TextView
 import com.android.a2mvcdandagger.screens.common.activities.BaseActivity
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
+import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
 import kotlinx.coroutines.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class QuestionDetailsActivity : BaseActivity(),QuestionDetailsListViewMvc.Listeners {
+class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Listeners {
 
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
-    private lateinit var questionId: String
-    private lateinit var mvc: QuestionDetailsListViewMvc
-    private lateinit var dialogsNavigator: DialogsNavigator
-    private lateinit var screenNavigator: ScreenNavigator
-    private lateinit var fetchDetailQuestionsUseCase: FetchDetailQuestionsUseCase
+    lateinit var questionId: String
+    lateinit var mvc: QuestionDetailsListViewMvc
+    lateinit var dialogsNavigator: DialogsNavigator
+    lateinit var screenNavigator: ScreenNavigator
+    lateinit var fetchDetailQuestionsUseCase: FetchDetailQuestionsUseCase
+    lateinit var viewMvcFactory: ViewMvcFactory //todo 9
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //todo 10 (next Injector)
+        injector.inject(this)
         super.onCreate(savedInstanceState)
-
-        mvc = compositionRoot.viewMvcFactory.newQuestionsDetailsViewMvc(null)
+        mvc = viewMvcFactory.newQuestionsDetailsViewMvc(null)
 
         setContentView(mvc.rootView)
 
         questionId = intent.extras!!.getString(EXTRA_QUESTION_ID)!!
-        dialogsNavigator = compositionRoot.dialogNavigator
-        screenNavigator = compositionRoot.screenNavigator
-        fetchDetailQuestionsUseCase = compositionRoot.fetchDetailQuestionsUseCase
     }
 
     override fun onStart() {
@@ -56,20 +56,20 @@ class QuestionDetailsActivity : BaseActivity(),QuestionDetailsListViewMvc.Listen
     }
 
 
-    private fun fetchQuestionDetails(){
+    private fun fetchQuestionDetails() {
         coroutineScope.launch {
             mvc.showProgressIndication()
             try {
                 val result = fetchDetailQuestionsUseCase.fetchQuestionDetails(questionId)
-                when(result){
-                    is FetchDetailQuestionsUseCase.ResultDetails.Success->{
+                when (result) {
+                    is FetchDetailQuestionsUseCase.ResultDetails.Success -> {
                         mvc.bindQuestions(result.questionId)
                     }
-                    is FetchDetailQuestionsUseCase.ResultDetails.Failure->{
+                    is FetchDetailQuestionsUseCase.ResultDetails.Failure -> {
                         onFetchFailed()
                     }
                 }
-            }finally {
+            } finally {
                 mvc.hideProgressIndication()
             }
 

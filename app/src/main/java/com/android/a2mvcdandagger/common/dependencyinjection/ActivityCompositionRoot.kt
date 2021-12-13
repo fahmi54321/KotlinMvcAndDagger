@@ -1,6 +1,5 @@
-package com.android.a2mvcdandagger.common.composition
+package com.android.a2mvcdandagger.common.dependencyinjection
 
-import android.app.Activity
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
