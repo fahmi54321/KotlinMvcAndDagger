@@ -14,6 +14,7 @@ class ActivityModule(
     private val appModule: AppModule
 ) {
 
+    //todo 2 hapus lazy initialization pada screen navigator
 
     @Provides
     fun application() = appModule.application
@@ -24,9 +25,9 @@ class ActivityModule(
     @Provides
     fun activity() = activity
 
-    //todo 1 (next ActivityComponent)
+    //todo 3 (next ActivityComponent)
     @Provides
-    @Singleton
+    @ActivityScope
     fun screenNavigator (activity: AppCompatActivity) = ScreenNavigator(activity)
 
     @Provides
