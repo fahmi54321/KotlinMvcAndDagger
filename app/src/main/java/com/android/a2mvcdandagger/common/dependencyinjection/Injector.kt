@@ -4,14 +4,11 @@ import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
 import com.android.a2mvcdandagger.screens.questiondetails.FetchDetailQuestionsUseCase
-import com.android.a2mvcdandagger.screens.questiondetails.QuestionDetailsActivity
 import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
-import com.android.a2mvcdandagger.screens.questionslist.QuestionsListFragment
 import java.lang.reflect.Field
 
-//todo 4 (finish)
 class Injector(
-    private val compositionRoot: PresentationCompositionRoot
+    private val component: PresentationComponent // todo 3 (next BaseActivity)
 ) {
 
     fun inject(client: Any) {
@@ -47,19 +44,19 @@ class Injector(
     private fun getServiceForClass(type: Class<*>): Any {
         when (type) {
             DialogsNavigator::class.java -> {
-                return compositionRoot.dialogNavigator
+                return component.dialogNavigator()
             }
             ScreenNavigator::class.java -> {
-                return compositionRoot.screenNavigator
+                return component.screenNavigator()
             }
             FetchQuestionsUseCase::class.java -> {
-                return compositionRoot.fetchQuestionsUseCase
+                return component.fetchQuestionsUseCase()
             }
             FetchDetailQuestionsUseCase::class.java -> {
-                return compositionRoot.fetchDetailQuestionsUseCase
+                return component.fetchDetailQuestionsUseCase()
             }
             ViewMvcFactory::class.java -> {
-                return compositionRoot.viewMvcFactory
+                return component.viewMvcFactory()
             }
             else -> {
                 throw Exception("unsupported service type: $type")

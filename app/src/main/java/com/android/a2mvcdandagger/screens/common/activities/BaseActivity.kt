@@ -3,8 +3,9 @@ package com.android.a2mvcdandagger.screens.common.activities
 import androidx.appcompat.app.AppCompatActivity
 import com.android.a2mvcdandagger.MyApplication
 import com.android.a2mvcdandagger.common.dependencyinjection.ActivityCompositionRoot
+import com.android.a2mvcdandagger.common.dependencyinjection.DaggerPresentationComponent
 import com.android.a2mvcdandagger.common.dependencyinjection.Injector
-import com.android.a2mvcdandagger.common.dependencyinjection.PresentationCompositionRoot
+import com.android.a2mvcdandagger.common.dependencyinjection.PresentationModule
 
 open class BaseActivity:AppCompatActivity() {
 
@@ -13,10 +14,13 @@ open class BaseActivity:AppCompatActivity() {
         ActivityCompositionRoot(this, appCompositionRoot)
     }
 
-    private val compositionRoot by lazy {
-        PresentationCompositionRoot(activityCompositionRoot)
+    //todo 4
+    private val presentationComponent by lazy {
+        DaggerPresentationComponent.builder()
+            .presentationModule(PresentationModule(activityCompositionRoot))
+            .build()
     }
 
-    //todo 8 (next QuestionsDetailsActivity)
-    protected val injector get() = Injector(compositionRoot)
+    //todo 5 (next BaseFragment)
+    protected val injector get() = Injector(presentationComponent)
 }
