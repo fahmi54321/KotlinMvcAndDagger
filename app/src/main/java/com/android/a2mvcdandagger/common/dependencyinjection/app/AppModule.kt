@@ -7,12 +7,13 @@ import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 @Module
 class AppModule(val application: Application) {
 
-    //todo 5
-    @AppScope
+    //todo 3
+    @Singleton
     @Provides
     fun retrofit(): Retrofit {
         return Retrofit.Builder()
@@ -25,8 +26,8 @@ class AppModule(val application: Application) {
     @Provides
     fun application() = application
 
-    //todo 6 (finish)
-    @AppScope
+    //todo 4 (next AppComponent)
+    @Singleton
     @Provides
     fun stackoverflowApi(retrofit: Retrofit) = retrofit.create(StackoverflowApi::class.java)
 

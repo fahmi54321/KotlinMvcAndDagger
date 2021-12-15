@@ -7,7 +7,7 @@ import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import dagger.Component
 import javax.inject.Singleton
 
-@ActivityScope
+@Singleton //todo 2 (next AppModule)
 @Component(modules = [ActivityModule::class])
 interface ActivityComponent {
 
