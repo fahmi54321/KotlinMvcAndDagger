@@ -3,6 +3,7 @@ package com.android.a2mvcdandagger.common.dependencyinjection.activity
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
+import com.android.a2mvcdandagger.networking.StackoverflowApi
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import dagger.Component
 import javax.inject.Singleton
@@ -18,5 +19,7 @@ interface ActivityComponent {
     fun layoutInflater(): LayoutInflater
 
     fun fragmentManager(): FragmentManager
+
+    fun stackoverflowApi(): StackoverflowApi
 
 }

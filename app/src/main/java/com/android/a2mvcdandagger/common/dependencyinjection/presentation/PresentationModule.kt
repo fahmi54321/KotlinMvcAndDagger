@@ -2,6 +2,7 @@ package com.android.a2mvcdandagger.common.dependencyinjection.presentation
 
 import android.view.LayoutInflater
 import androidx.fragment.app.FragmentManager
+import com.android.a2mvcdandagger.common.dependencyinjection.activity.ActivityComponent
 import com.android.a2mvcdandagger.common.dependencyinjection.activity.ActivityModule
 import com.android.a2mvcdandagger.networking.StackoverflowApi
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
@@ -14,21 +15,21 @@ import dagger.Provides
 //todo 1 (next PresentationComponent)
 @Module
 class PresentationModule(
-    private val activityModule: ActivityModule
+    private val activityComponent: ActivityComponent
 ) {
 
 
     @Provides
-    fun layoutInflater() = activityModule.layoutInflater()
+    fun layoutInflater() = activityComponent.layoutInflater()
 
     @Provides
-    fun fragmentManager() = activityModule.fragmentManager()
+    fun fragmentManager() = activityComponent.fragmentManager()
 
     @Provides
-    fun stackoverflowApi() = activityModule.stackoverflowApi()
+    fun stackoverflowApi() = activityComponent.stackoverflowApi()
 
     @Provides
-    fun screenNavigator() = activityModule.screenNavigator(activityModule.activity)
+    fun screenNavigator() = activityComponent.screenNavigator()
 
     @Provides
     fun viewMvcFactory(layoutInflater: LayoutInflater) = ViewMvcFactory(layoutInflater)
