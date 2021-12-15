@@ -16,6 +16,7 @@ import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
 import kotlinx.coroutines.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
 class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Listeners {
 
@@ -24,15 +25,15 @@ class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Liste
     lateinit var questionId: String
     lateinit var mvc: QuestionDetailsListViewMvc
 
-    //todo 3 (next Injector)
-    @field:Service private lateinit var dialogsNavigator: DialogsNavigator
-    @field:Service private lateinit var screenNavigator: ScreenNavigator
-    @field:Service private lateinit var fetchDetailQuestionsUseCase: FetchDetailQuestionsUseCase
-    @field:Service private lateinit var viewMvcFactory: ViewMvcFactory
+    //todo 5
+    @Inject lateinit var dialogsNavigator: DialogsNavigator
+    @Inject lateinit var screenNavigator: ScreenNavigator
+    @Inject lateinit var fetchDetailQuestionsUseCase: FetchDetailQuestionsUseCase
+    @Inject lateinit var viewMvcFactory: ViewMvcFactory
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        injector.inject(this)
+        injector.inject(this) //todo 6 (next BaseActivity)
         super.onCreate(savedInstanceState)
         mvc = viewMvcFactory.newQuestionsDetailsViewMvc(null)
 
