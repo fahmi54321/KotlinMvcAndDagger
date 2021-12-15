@@ -13,21 +13,21 @@ import dagger.Provides
 //todo 1 (next PresentationComponent)
 @Module
 class PresentationModule(
-    private val activityCompositionRoot: ActivityCompositionRoot
+    private val activityModule: ActivityModule
 ) {
 
 
     @Provides
-    fun layoutInflater() = activityCompositionRoot.layoutInflater
+    fun layoutInflater() = activityModule.layoutInflater()
 
     @Provides
-    fun fragmentManager() = activityCompositionRoot.fragmentManager
+    fun fragmentManager() = activityModule.fragmentManager()
 
     @Provides
-    fun stackoverflowApi() = activityCompositionRoot.stackoverflowApi
+    fun stackoverflowApi() = activityModule.stackoverflowApi()
 
     @Provides
-    fun screenNavigator() = activityCompositionRoot.screenNavigator
+    fun screenNavigator() = activityModule.screenNavigator
 
     @Provides
     fun viewMvcFactory(layoutInflater: LayoutInflater) = ViewMvcFactory(layoutInflater)

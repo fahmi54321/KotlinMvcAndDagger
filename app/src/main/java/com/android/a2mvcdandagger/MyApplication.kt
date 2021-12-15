@@ -1,14 +1,14 @@
 package com.android.a2mvcdandagger
 
 import android.app.Application
-import com.android.a2mvcdandagger.common.dependencyinjection.AppCompositionRoot
+import com.android.a2mvcdandagger.common.dependencyinjection.AppModule
 
 class MyApplication: Application() {
 
-    lateinit var appCompositionRoot: AppCompositionRoot
+    lateinit var appModule: AppModule
 
     override fun onCreate() {
-        appCompositionRoot = AppCompositionRoot(this)
+        appModule = AppModule(this)
         super.onCreate()
     }
 

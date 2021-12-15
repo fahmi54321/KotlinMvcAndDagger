@@ -2,16 +2,16 @@ package com.android.a2mvcdandagger.screens.common.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import com.android.a2mvcdandagger.MyApplication
-import com.android.a2mvcdandagger.common.dependencyinjection.ActivityCompositionRoot
+import com.android.a2mvcdandagger.common.dependencyinjection.ActivityModule
 import com.android.a2mvcdandagger.common.dependencyinjection.DaggerPresentationComponent
 import com.android.a2mvcdandagger.common.dependencyinjection.Injector
 import com.android.a2mvcdandagger.common.dependencyinjection.PresentationModule
 
 open class BaseActivity:AppCompatActivity() {
 
-    private val appCompositionRoot get() = (application as MyApplication).appCompositionRoot
+    private val appCompositionRoot get() = (application as MyApplication).appModule
     val activityCompositionRoot by lazy {
-        ActivityCompositionRoot(this, appCompositionRoot)
+        ActivityModule(this, appCompositionRoot)
     }
 
     //todo 4
