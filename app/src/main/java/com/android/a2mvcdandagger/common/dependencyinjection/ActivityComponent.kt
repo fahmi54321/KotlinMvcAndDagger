@@ -19,4 +19,6 @@ interface ActivityComponent {
 
     fun fragmentManager(): FragmentManager
 
+    fun stackoverflowApi():StackoverflowApi
+
 }

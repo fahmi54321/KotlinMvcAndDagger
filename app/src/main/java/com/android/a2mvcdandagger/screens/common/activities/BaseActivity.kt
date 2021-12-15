@@ -2,22 +2,21 @@ package com.android.a2mvcdandagger.screens.common.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import com.android.a2mvcdandagger.MyApplication
-import com.android.a2mvcdandagger.common.dependencyinjection.ActivityModule
-import com.android.a2mvcdandagger.common.dependencyinjection.DaggerPresentationComponent
-import com.android.a2mvcdandagger.common.dependencyinjection.Injector
-import com.android.a2mvcdandagger.common.dependencyinjection.PresentationModule
+import com.android.a2mvcdandagger.common.dependencyinjection.*
 
 open class BaseActivity:AppCompatActivity() {
 
-    private val appCompositionRoot get() = (application as MyApplication).appModule
-    val activityCompositionRoot by lazy {
-        ActivityModule(this, appCompositionRoot)
+    private val appCompositionRoot get() = (application as MyApplication).appComponent
+    val activityComponent by lazy {
+        DaggerActivityComponent.builder()
+            .activityModule(ActivityModule(this,appCompositionRoot))
+            .build()
     }
 
     //todo 4
     private val presentationComponent by lazy {
         DaggerPresentationComponent.builder()
-            .presentationModule(PresentationModule(activityCompositionRoot))
+            .presentationModule(PresentationModule(activityComponent))
             .build()
     }
 

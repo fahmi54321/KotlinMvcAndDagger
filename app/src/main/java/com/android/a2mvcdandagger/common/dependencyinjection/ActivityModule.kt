@@ -9,7 +9,7 @@ import dagger.Provides
 @Module
 class ActivityModule(
     val activity: AppCompatActivity,
-    private val appModule: AppModule
+    private val appComponent: AppComponent
 ) {
 
     val screenNavigator by lazy {
@@ -17,10 +17,10 @@ class ActivityModule(
     }
 
     @Provides
-    fun application() = appModule.application
+    fun application() = appComponent.application()
 
     @Provides
-    fun stackoverflowApi() = appModule.stackoverflowApi
+    fun stackoverflowApi() = appComponent.stackoverflowApi()
 
     @Provides
     fun activity() = activity
