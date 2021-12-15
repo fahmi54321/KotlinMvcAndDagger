@@ -1,7 +1,7 @@
 package com.android.a2mvcdandagger
 
 import android.app.Application
-import com.android.a2mvcdandagger.common.dependencyinjection.AppModule
+import com.android.a2mvcdandagger.common.dependencyinjection.app.AppModule
 
 class MyApplication: Application() {
 

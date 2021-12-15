@@ -1,5 +1,6 @@
 package com.android.a2mvcdandagger.common.dependencyinjection
 
+import com.android.a2mvcdandagger.common.dependencyinjection.presentation.PresentationComponent
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory

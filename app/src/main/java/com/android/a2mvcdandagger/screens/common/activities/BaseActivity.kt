@@ -2,10 +2,10 @@ package com.android.a2mvcdandagger.screens.common.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import com.android.a2mvcdandagger.MyApplication
-import com.android.a2mvcdandagger.common.dependencyinjection.ActivityModule
-import com.android.a2mvcdandagger.common.dependencyinjection.DaggerPresentationComponent
+import com.android.a2mvcdandagger.common.dependencyinjection.activity.ActivityModule
 import com.android.a2mvcdandagger.common.dependencyinjection.Injector
-import com.android.a2mvcdandagger.common.dependencyinjection.PresentationModule
+import com.android.a2mvcdandagger.common.dependencyinjection.presentation.DaggerPresentationComponent
+import com.android.a2mvcdandagger.common.dependencyinjection.presentation.PresentationModule
 
 open class BaseActivity:AppCompatActivity() {
 

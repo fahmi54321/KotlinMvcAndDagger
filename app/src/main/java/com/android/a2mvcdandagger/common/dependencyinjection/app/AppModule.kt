@@ -1,7 +1,6 @@
-package com.android.a2mvcdandagger.common.dependencyinjection
+package com.android.a2mvcdandagger.common.dependencyinjection.app
 
 import android.app.Application
-import androidx.annotation.UiThread
 import com.android.a2mvcdandagger.Constants
 import com.android.a2mvcdandagger.networking.StackoverflowApi
 import dagger.Module
@@ -12,21 +11,23 @@ import retrofit2.converter.gson.GsonConverterFactory
 @Module
 class AppModule(val application: Application) {
 
-    private val retrofit: Retrofit by lazy {
-        Retrofit.Builder()
+    //todo 5
+    @AppScope
+    @Provides
+    fun retrofit(): Retrofit {
+        return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
-    val stackoverflowApi : StackoverflowApi by lazy {
-        retrofit.create(StackoverflowApi::class.java)
-    }
 
     @Provides
     fun application() = application
 
+    //todo 6 (finish)
+    @AppScope
     @Provides
-    fun stackoverflowApi() = stackoverflowApi
+    fun stackoverflowApi(retrofit: Retrofit) = retrofit.create(StackoverflowApi::class.java)
 
 }
