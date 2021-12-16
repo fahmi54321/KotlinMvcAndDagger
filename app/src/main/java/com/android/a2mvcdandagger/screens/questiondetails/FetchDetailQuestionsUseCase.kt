@@ -6,8 +6,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
-class FetchDetailQuestionsUseCase(
+//todo 1 (next FetchQuestionsUseCase)
+class FetchDetailQuestionsUseCase @Inject constructor(
     private var stackoverflowApi: StackoverflowApi
 ) {
 
