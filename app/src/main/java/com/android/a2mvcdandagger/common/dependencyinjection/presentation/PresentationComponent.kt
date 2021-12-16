@@ -11,9 +11,9 @@ import com.android.a2mvcdandagger.screens.questionslist.QuestionsListFragment
 import dagger.Component
 import dagger.Subcomponent
 
-//todo 1 (next ActivityComponent)
+//todo 3 (next ActivityComponent)
 @PresentationScope
-@Subcomponent(modules = [PresentationModule::class])
+@Subcomponent(modules = [PresentationModule::class,UseCasesModule::class])
 interface PresentationComponent {
     fun inject(questionsListFragment: QuestionsListFragment)
     fun inject(questionDetailsActivity: QuestionDetailsActivity)

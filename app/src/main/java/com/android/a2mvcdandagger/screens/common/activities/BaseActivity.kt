@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.android.a2mvcdandagger.MyApplication
 import com.android.a2mvcdandagger.common.dependencyinjection.activity.ActivityModule
 import com.android.a2mvcdandagger.common.dependencyinjection.presentation.PresentationModule
+import com.android.a2mvcdandagger.common.dependencyinjection.presentation.UseCasesModule
 
 open class BaseActivity:AppCompatActivity() {
 
@@ -13,9 +14,12 @@ open class BaseActivity:AppCompatActivity() {
         appComponent.newActivityCompononent(ActivityModule(this))
     }
 
-    //todo 3 (next BaseFragment)
+    //todo 5 (next BaseFragment)
     private val presentationComponent by lazy {
-        activityComponent.newPresentationComponent(PresentationModule())
+        activityComponent.newPresentationComponent(
+            PresentationModule(),
+            UseCasesModule()
+        )
     }
 
     protected val injector get() = presentationComponent
