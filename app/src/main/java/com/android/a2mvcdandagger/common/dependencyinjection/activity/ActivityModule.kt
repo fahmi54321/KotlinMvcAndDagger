@@ -12,21 +12,11 @@ import javax.inject.Singleton
 @Module
 class ActivityModule(
     val activity: AppCompatActivity,
-    private val appComponent: AppComponent
 ) {
-
-    //todo 2 hapus lazy initialization pada screen navigator
-
-    @Provides
-    fun application() = appComponent.application()
-
-    @Provides
-    fun stackoverflowApi() = appComponent.stackoverflowApi()
 
     @Provides
     fun activity() = activity
 
-    //todo 3 (next ActivityComponent)
     @Provides
     @ActivityScope
     fun screenNavigator (activity: AppCompatActivity) = ScreenNavigator(activity)

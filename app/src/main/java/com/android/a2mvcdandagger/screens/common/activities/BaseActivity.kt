@@ -9,22 +9,22 @@ import com.android.a2mvcdandagger.common.dependencyinjection.presentation.Presen
 
 open class BaseActivity:AppCompatActivity() {
 
-    private val appCompositionRoot get() = (application as MyApplication).appComponent
-    val activityCompositionRoot by lazy {
-        ActivityModule(this, appCompositionRoot)
-    }
+    private val appComponent get() = (application as MyApplication).appComponent
 
     val activityComponent by lazy {
         DaggerActivityComponent.builder()
-            .activityModule(ActivityModule(this, appCompositionRoot))
+            .appComponent(appComponent)
+            .activityModule(ActivityModule(this))
             .build()
     }
 
+    //todo 3 (next BaseFragment)
     private val presentationComponent by lazy {
         DaggerPresentationComponent.builder()
-            .presentationModule(PresentationModule(activityComponent))
+            .activityComponent(activityComponent)
+            .presentationModule(PresentationModule())
             .build()
     }
 
-    protected val injector get() = presentationComponent //todo 7 (next PresentationComponent)
+    protected val injector get() = presentationComponent
 }

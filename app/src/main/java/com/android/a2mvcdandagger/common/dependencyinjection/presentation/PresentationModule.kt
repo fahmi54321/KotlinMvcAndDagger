@@ -12,24 +12,10 @@ import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
 import dagger.Module
 import dagger.Provides
 
-//todo 1 (next PresentationComponent)
 @Module
-class PresentationModule(
-    private val activityComponent: ActivityComponent
-) {
+class PresentationModule {
 
-
-    @Provides
-    fun layoutInflater() = activityComponent.layoutInflater()
-
-    @Provides
-    fun fragmentManager() = activityComponent.fragmentManager()
-
-    @Provides
-    fun stackoverflowApi() = activityComponent.stackoverflowApi()
-
-    @Provides
-    fun screenNavigator() = activityComponent.screenNavigator()
+    // todo 2 (hapus semua ketergantungan pada activity component) (next BaseActivity)
 
     @Provides
     fun viewMvcFactory(layoutInflater: LayoutInflater) = ViewMvcFactory(layoutInflater)
