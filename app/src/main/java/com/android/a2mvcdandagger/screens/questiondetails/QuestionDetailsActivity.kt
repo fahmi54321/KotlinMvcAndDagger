@@ -2,20 +2,12 @@ package com.android.a2mvcdandagger.screens.questiondetails
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Html
-import android.view.LayoutInflater
-import android.widget.TextView
-import com.android.a2mvcdandagger.common.dependencyinjection.Service
 import com.android.a2mvcdandagger.screens.common.activities.BaseActivity
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
 import kotlinx.coroutines.*
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
 class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Listeners {
@@ -66,7 +58,7 @@ class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Liste
                 val result = fetchDetailQuestionsUseCase.fetchQuestionDetails(questionId)
                 when (result) {
                     is FetchDetailQuestionsUseCase.ResultDetails.Success -> {
-                        mvc.bindQuestions(result.questionId)
+                        mvc.bindQuestions(result.question)
                     }
                     is FetchDetailQuestionsUseCase.ResultDetails.Failure -> {
                         onFetchFailed()
