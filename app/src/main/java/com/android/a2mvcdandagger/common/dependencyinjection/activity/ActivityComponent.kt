@@ -9,10 +9,11 @@ import com.android.a2mvcdandagger.common.dependencyinjection.presentation.Presen
 import com.android.a2mvcdandagger.networking.StackoverflowApi
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import dagger.Component
+import dagger.Subcomponent
 import javax.inject.Singleton
 
 @ActivityScope
-@Component(dependencies = [AppComponent::class],modules = [ActivityModule::class])
+@Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {
 
     fun newPresentationComponent(presentationModule: PresentationModule):PresentationComponent
