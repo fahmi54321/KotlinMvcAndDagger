@@ -16,6 +16,6 @@ import javax.inject.Singleton
 @Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {
 
-    fun newPresentationComponent(presentationModule: PresentationModule):PresentationComponent
+    fun newPresentationComponent(presentationModule: PresentationModule):PresentationComponent //todo 2 (next BaseActivity)
 
 }
