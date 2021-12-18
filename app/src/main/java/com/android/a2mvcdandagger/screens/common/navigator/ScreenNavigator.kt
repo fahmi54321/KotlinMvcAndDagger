@@ -14,8 +14,7 @@ import javax.inject.Inject
     injector.inject(this)
  **/
 
-@ActivityScope
-class ScreenNavigator @Inject constructor(
+class ScreenNavigator(
     private val activity: AppCompatActivity
 ) {
 

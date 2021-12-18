@@ -7,7 +7,13 @@ import dagger.Subcomponent
 @Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {
 
-    //todo 4 hapus UseCasesModule (next BaseActivity)
     fun newPresentationComponent(): PresentationComponent
+
+    //todo 2 (next AppComponent)
+    @Subcomponent.Builder
+    interface Builder {
+        fun activityModule(activityModule: ActivityModule): Builder
+        fun build(): ActivityComponent
+    }
 
 }
