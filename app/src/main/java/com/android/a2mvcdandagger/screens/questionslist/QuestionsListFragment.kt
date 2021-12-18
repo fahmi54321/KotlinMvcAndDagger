@@ -1,11 +1,9 @@
 package com.android.a2mvcdandagger.screens.questionslist
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.android.a2mvcdandagger.common.dependencyinjection.Service
 import com.android.a2mvcdandagger.questions.Question
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.fragments.BaseFragment
