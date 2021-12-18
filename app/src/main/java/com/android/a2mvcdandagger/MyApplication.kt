@@ -7,7 +7,6 @@ import com.android.a2mvcdandagger.common.dependencyinjection.app.DaggerAppCompon
 
 class MyApplication: Application() {
 
-    //todo 5 (finish)
     val appComponent:AppComponent by lazy {
         DaggerAppComponent.builder()
             .appModule(AppModule(this))
