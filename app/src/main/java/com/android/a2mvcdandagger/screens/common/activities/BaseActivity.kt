@@ -8,6 +8,7 @@ open class BaseActivity:AppCompatActivity() {
 
     private val appComponent get() = (application as MyApplication).appComponent
 
+    //todo 3 (finish)
     val activityComponent by lazy {
         appComponent.newActivityCompononent()
             .activity(this)

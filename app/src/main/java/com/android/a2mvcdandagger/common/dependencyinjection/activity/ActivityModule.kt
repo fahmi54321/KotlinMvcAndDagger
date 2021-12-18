@@ -9,6 +9,7 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
+//todo 1 hapus sevice actvity (next ActivityComponent)
 @Module
 object ActivityModule {
 
