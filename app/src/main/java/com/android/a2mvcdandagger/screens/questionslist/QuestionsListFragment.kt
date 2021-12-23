@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.android.a2mvcdandagger.R
 import com.android.a2mvcdandagger.questions.Question
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.fragments.BaseFragment
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
@@ -59,6 +61,10 @@ class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
 
     override fun onQuestionClicked(clickQuestion: Question) {
         screenNavigator.toQuestionDetails(clickQuestion.id)
+    }
+
+    override fun onToViewModelActivity() {
+        screenNavigator.toViewModelActivity()
     }
 
     private fun fetchQuestions() {

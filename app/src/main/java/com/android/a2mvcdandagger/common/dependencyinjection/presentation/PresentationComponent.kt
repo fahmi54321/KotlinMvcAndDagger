@@ -8,6 +8,7 @@ import com.android.a2mvcdandagger.screens.questiondetails.FetchDetailQuestionsUs
 import com.android.a2mvcdandagger.screens.questiondetails.QuestionDetailsActivity
 import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
 import com.android.a2mvcdandagger.screens.questionslist.QuestionsListFragment
+import com.android.a2mvcdandagger.screens.viewmodel.ViewModelActivity
 import dagger.Component
 import dagger.Subcomponent
 
@@ -17,5 +18,6 @@ import dagger.Subcomponent
 interface PresentationComponent {
     fun inject(questionsListFragment: QuestionsListFragment)
     fun inject(questionDetailsActivity: QuestionDetailsActivity)
+    fun inject(viewModelActivity: ViewModelActivity)
 
 }
