@@ -12,9 +12,8 @@ import com.android.a2mvcdandagger.screens.viewmodel.ViewModelActivity
 import dagger.Component
 import dagger.Subcomponent
 
-//todo 3 hapus UseCasesModule (next ActivityComponent)
 @PresentationScope
-@Subcomponent()
+@Subcomponent(modules = [ViewModelModule::class]) //todo 3 (next ViewModelFactory)
 interface PresentationComponent {
     fun inject(questionsListFragment: QuestionsListFragment)
     fun inject(questionDetailsActivity: QuestionDetailsActivity)
