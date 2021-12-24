@@ -1,15 +1,12 @@
 package com.android.a2mvcdandagger.screens.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.android.a2mvcdandagger.questions.Question
 import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Provider
 
-//todo 1 (next ViewModelActivity)
 class MyViewModel @Inject constructor(
     private val fetchQuestionsUseCase: FetchQuestionsUseCase
 ):ViewModel() {
@@ -28,6 +25,15 @@ class MyViewModel @Inject constructor(
             }
         }
 
+    }
+
+    //todo 1 (next ViewModelActivity)
+    class MyViewModelFactory @Inject constructor(
+        private val fetchQuestionsUseCaseProvider: Provider<FetchQuestionsUseCase>
+    ) : ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return MyViewModel(fetchQuestionsUseCaseProvider.get()) as T
+        }
     }
 
 }
