@@ -27,7 +27,7 @@ class ViewModelActivity : BaseActivity() {
         setContentView(R.layout.activity_view_model)
 
         myViewModel = ViewModelProvider(this,factory)[MyViewModel::class.java]
-        myViewModel2 = ViewModelProvider(this,factory)[MyViewModel2::class.java] //todo 5 (finish)
+        myViewModel2 = ViewModelProvider(this,factory)[MyViewModel2::class.java]
 
         myViewModel.question.observe(this, {
             Toast.makeText(this, "fetched ${it.size} questions", Toast.LENGTH_SHORT).show()
