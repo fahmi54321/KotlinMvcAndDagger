@@ -7,9 +7,12 @@ import com.android.a2mvcdandagger.screens.common.activities.BaseActivity
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
+//todo 7
+@AndroidEntryPoint
 class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Listeners {
 
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
@@ -17,20 +20,16 @@ class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Liste
     lateinit var questionId: String
     lateinit var mvc: QuestionDetailsListViewMvc
 
-    //todo 5
     @Inject lateinit var dialogsNavigator: DialogsNavigator
     @Inject lateinit var screenNavigator: ScreenNavigator
     @Inject lateinit var fetchDetailQuestionsUseCase: FetchDetailQuestionsUseCase
     @Inject lateinit var viewMvcFactory: ViewMvcFactory
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        injector.inject(this) //todo 6 (next BaseActivity)
+    override fun onCreate(savedInstanceState: Bundle?) { //todo 8 hapus inject (next ViewModelActivity)
         super.onCreate(savedInstanceState)
         mvc = viewMvcFactory.newQuestionsDetailsViewMvc(null)
-
         setContentView(mvc.rootView)
-
         questionId = intent.extras!!.getString(EXTRA_QUESTION_ID)!!
     }
 

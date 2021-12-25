@@ -5,20 +5,6 @@ import com.android.a2mvcdandagger.MyApplication
 import com.android.a2mvcdandagger.common.dependencyinjection.activity.ActivityModule
 import com.android.a2mvcdandagger.common.dependencyinjection.presentation.PresentationModule
 
+//todo 3 clear semuanya (next BaseFragment)
 open class BaseActivity:AppCompatActivity() {
-
-    private val appComponent get() = (application as MyApplication).appComponent
-
-    val activityComponent by lazy {
-        appComponent.newActivityCompononent()
-            .activity(this)
-            .activityModule(ActivityModule)
-            .build()
-    }
-
-    private val presentationComponent by lazy {
-        activityComponent.newPresentationComponent(PresentationModule(this)) //todo 9 (next BaseFragment)
-    }
-
-    protected val injector get() = presentationComponent
 }
