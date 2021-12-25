@@ -3,12 +3,12 @@ package com.android.a2mvcdandagger.screens.common.activities
 import androidx.appcompat.app.AppCompatActivity
 import com.android.a2mvcdandagger.MyApplication
 import com.android.a2mvcdandagger.common.dependencyinjection.activity.ActivityModule
+import com.android.a2mvcdandagger.common.dependencyinjection.presentation.PresentationModule
 
 open class BaseActivity:AppCompatActivity() {
 
     private val appComponent get() = (application as MyApplication).appComponent
 
-    //todo 3 (finish)
     val activityComponent by lazy {
         appComponent.newActivityCompononent()
             .activity(this)
@@ -17,7 +17,7 @@ open class BaseActivity:AppCompatActivity() {
     }
 
     private val presentationComponent by lazy {
-        activityComponent.newPresentationComponent()
+        activityComponent.newPresentationComponent(PresentationModule(this)) //todo 9 (next BaseFragment)
     }
 
     protected val injector get() = presentationComponent
