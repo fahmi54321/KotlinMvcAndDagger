@@ -15,8 +15,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class) //todo 2
-class AppModule { //todo 3 (remove application)
+@InstallIn(SingletonComponent::class)
+class AppModule {
 
     @AppScope
     @Provides
@@ -37,8 +37,6 @@ class AppModule { //todo 3 (remove application)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
-    //todo 4 (remove application) (next remove semua presentation dan next ServiceModule)
 
     @AppScope
     @Provides

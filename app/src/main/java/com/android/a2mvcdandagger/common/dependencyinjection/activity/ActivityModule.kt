@@ -9,7 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 
 @Module
-@InstallIn(ActivityComponent::class) //todo 1 kegunaan component bisa dilihat pada dokumentasi hilt (next AppModule)
+@InstallIn(ActivityComponent::class)
 object ActivityModule {
 
     @Provides
