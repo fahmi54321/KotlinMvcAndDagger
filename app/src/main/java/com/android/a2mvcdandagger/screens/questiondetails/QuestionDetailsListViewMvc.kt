@@ -12,10 +12,11 @@ import com.android.a2mvcdandagger.questions.QuestionWithBody
 import com.android.a2mvcdandagger.screens.common.imageloader.ImageLoader
 import com.android.a2mvcdandagger.screens.common.toolbar.MyToolbar
 import com.android.a2mvcdandagger.screens.common.viewmvc.BaseViewMvc
+import dagger.hilt.android.AndroidEntryPoint
 
 class QuestionDetailsListViewMvc(
     layoutInflater: LayoutInflater,
-    private val imageLoader: ImageLoader, //todo 3 (next ImageLoader)
+    private val imageLoader: ImageLoader,
     parent: ViewGroup?
 ): BaseViewMvc<QuestionDetailsListViewMvc.Listeners>(
     layoutInflater,

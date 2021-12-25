@@ -11,7 +11,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
-//todo 7
 @AndroidEntryPoint
 class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Listeners {
 
