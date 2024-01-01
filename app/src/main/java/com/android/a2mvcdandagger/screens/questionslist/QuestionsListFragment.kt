@@ -9,23 +9,22 @@ import com.android.a2mvcdandagger.questions.Question
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.fragments.BaseFragment
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
+import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
 import kotlinx.coroutines.*
 
 class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
 
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private var isDataLoaded = false
-    private lateinit var viewMvc: QuestionsListViewMvc
-    private lateinit var fetchQuestionsUseCase: FetchQuestionsUseCase
-    private lateinit var dialogsNavigator: DialogsNavigator
-    private lateinit var screenNavigator: ScreenNavigator
+    lateinit var viewMvc: QuestionsListViewMvc
+    lateinit var fetchQuestionsUseCase: FetchQuestionsUseCase
+    lateinit var dialogsNavigator: DialogsNavigator
+    lateinit var screenNavigator: ScreenNavigator
+    lateinit var viewMvcFactory: ViewMvcFactory //todo 5
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        fetchQuestionsUseCase = compositionRoot.fetchQuestionsUseCase
-        dialogsNavigator = compositionRoot.dialogNavigator
-        screenNavigator = compositionRoot.screenNavigator
+        injector.inject(this) //todo 3 (next Injector)
 
     }
 
@@ -35,8 +34,7 @@ class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
         savedInstanceState: Bundle?
     ): View? {
 
-        //todo 3 (next ViewMvcFactory)
-        viewMvc = compositionRoot.viewMvcFactory.newQuestionsListViewMvc(container)
+        viewMvc = viewMvcFactory.newQuestionsListViewMvc(container) //todo 6 (next Injector)
         return viewMvc.rootView
     }
 
