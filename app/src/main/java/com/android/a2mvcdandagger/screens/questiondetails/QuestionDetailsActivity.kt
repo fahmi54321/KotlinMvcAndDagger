@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.Html
 import android.view.LayoutInflater
 import android.widget.TextView
+import com.android.a2mvcdandagger.common.dependencyinjection.Service
 import com.android.a2mvcdandagger.screens.common.activities.BaseActivity
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
@@ -22,10 +23,12 @@ class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Liste
 
     lateinit var questionId: String
     lateinit var mvc: QuestionDetailsListViewMvc
-    lateinit var dialogsNavigator: DialogsNavigator
-    lateinit var screenNavigator: ScreenNavigator
-    lateinit var fetchDetailQuestionsUseCase: FetchDetailQuestionsUseCase
-    lateinit var viewMvcFactory: ViewMvcFactory
+
+    //todo 3 (next Injector)
+    @field:Service private lateinit var dialogsNavigator: DialogsNavigator
+    @field:Service private lateinit var screenNavigator: ScreenNavigator
+    @field:Service private lateinit var fetchDetailQuestionsUseCase: FetchDetailQuestionsUseCase
+    @field:Service private lateinit var viewMvcFactory: ViewMvcFactory
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
