@@ -20,11 +20,11 @@ class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
     lateinit var fetchQuestionsUseCase: FetchQuestionsUseCase
     lateinit var dialogsNavigator: DialogsNavigator
     lateinit var screenNavigator: ScreenNavigator
-    lateinit var viewMvcFactory: ViewMvcFactory //todo 5
+    lateinit var viewMvcFactory: ViewMvcFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        injector.inject(this) //todo 3 (next Injector)
+        injector.inject(this)
 
     }
 
@@ -34,7 +34,7 @@ class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
         savedInstanceState: Bundle?
     ): View? {
 
-        viewMvc = viewMvcFactory.newQuestionsListViewMvc(container) //todo 6 (next Injector)
+        viewMvc = viewMvcFactory.newQuestionsListViewMvc(container)
         return viewMvc.rootView
     }
 

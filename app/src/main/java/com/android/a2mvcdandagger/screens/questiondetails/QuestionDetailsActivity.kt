@@ -25,11 +25,10 @@ class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Liste
     lateinit var dialogsNavigator: DialogsNavigator
     lateinit var screenNavigator: ScreenNavigator
     lateinit var fetchDetailQuestionsUseCase: FetchDetailQuestionsUseCase
-    lateinit var viewMvcFactory: ViewMvcFactory //todo 9
+    lateinit var viewMvcFactory: ViewMvcFactory
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //todo 10 (next Injector)
         injector.inject(this)
         super.onCreate(savedInstanceState)
         mvc = viewMvcFactory.newQuestionsDetailsViewMvc(null)

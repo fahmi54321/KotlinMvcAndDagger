@@ -17,6 +17,5 @@ open class BaseActivity:AppCompatActivity() {
         PresentationCompositionRoot(activityCompositionRoot)
     }
 
-    //todo 8 (next QuestionsDetailsActivity)
     protected val injector get() = Injector(compositionRoot)
 }

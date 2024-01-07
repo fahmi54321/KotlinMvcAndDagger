@@ -10,5 +10,5 @@ open class BaseFragment:Fragment() {
         PresentationCompositionRoot((requireActivity() as BaseActivity).activityCompositionRoot)
     }
 
-    protected val injector get() = Injector(compositionRoot) //todo 2 (next QuestionsListFragment)
+    protected val injector get() = Injector(compositionRoot)
 }
