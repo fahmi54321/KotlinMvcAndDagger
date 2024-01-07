@@ -8,7 +8,7 @@ import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
 import java.lang.reflect.Field
 
 class Injector(
-    private val compositionRoot: PresentationCompositionRoot
+    private val component: PresentationComponent // todo 3 (next BaseActivity)
 ) {
 
     fun inject(client: Any) {
@@ -44,19 +44,19 @@ class Injector(
     private fun getServiceForClass(type: Class<*>): Any {
         when (type) {
             DialogsNavigator::class.java -> {
-                return compositionRoot.dialogNavigator
+                return component.dialogNavigator()
             }
             ScreenNavigator::class.java -> {
-                return compositionRoot.screenNavigator
+                return component.screenNavigator()
             }
             FetchQuestionsUseCase::class.java -> {
-                return compositionRoot.fetchQuestionsUseCase
+                return component.fetchQuestionsUseCase()
             }
             FetchDetailQuestionsUseCase::class.java -> {
-                return compositionRoot.fetchDetailQuestionsUseCase
+                return component.fetchDetailQuestionsUseCase()
             }
             ViewMvcFactory::class.java -> {
-                return compositionRoot.viewMvcFactory
+                return component.viewMvcFactory()
             }
             else -> {
                 throw Exception("unsupported service type: $type")
