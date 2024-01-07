@@ -19,7 +19,6 @@ class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
     private var isDataLoaded = false
     lateinit var viewMvc: QuestionsListViewMvc
 
-    //todo 2 (next QuestionsDetailsActivity)
     @field:Service private lateinit var fetchQuestionsUseCase: FetchQuestionsUseCase
     @field:Service private lateinit var dialogsNavigator: DialogsNavigator
     @field:Service private lateinit var screenNavigator: ScreenNavigator

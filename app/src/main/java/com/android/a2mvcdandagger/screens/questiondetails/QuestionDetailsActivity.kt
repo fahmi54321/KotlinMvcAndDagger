@@ -24,7 +24,6 @@ class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Liste
     lateinit var questionId: String
     lateinit var mvc: QuestionDetailsListViewMvc
 
-    //todo 3 (next Injector)
     @field:Service private lateinit var dialogsNavigator: DialogsNavigator
     @field:Service private lateinit var screenNavigator: ScreenNavigator
     @field:Service private lateinit var fetchDetailQuestionsUseCase: FetchDetailQuestionsUseCase

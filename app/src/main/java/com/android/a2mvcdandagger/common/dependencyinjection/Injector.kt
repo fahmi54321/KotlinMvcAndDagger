@@ -4,12 +4,9 @@ import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
 import com.android.a2mvcdandagger.screens.questiondetails.FetchDetailQuestionsUseCase
-import com.android.a2mvcdandagger.screens.questiondetails.QuestionDetailsActivity
 import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
-import com.android.a2mvcdandagger.screens.questionslist.QuestionsListFragment
 import java.lang.reflect.Field
 
-//todo 4 (finish)
 class Injector(
     private val compositionRoot: PresentationCompositionRoot
 ) {
