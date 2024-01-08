@@ -12,7 +12,6 @@ import javax.inject.Singleton
 @Module
 class AppModule(val application: Application) {
 
-    //todo 6
     @AppScope
     @Provides
     fun retrofit(): Retrofit {
@@ -26,9 +25,8 @@ class AppModule(val application: Application) {
     @Provides
     fun application() = application
 
-    //todo 7 (next AppComponent)
     @AppScope
     @Provides
-    fun stackoverflowApi(retrofit: Retrofit) = retrofit.create(StackoverflowApi::class.java)
+    fun stackoverflowApi(retrofit: Retrofit): StackoverflowApi = retrofit.create(StackoverflowApi::class.java)
 
 }

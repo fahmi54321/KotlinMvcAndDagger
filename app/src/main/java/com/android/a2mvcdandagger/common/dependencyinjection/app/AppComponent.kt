@@ -5,7 +5,6 @@ import com.android.a2mvcdandagger.networking.StackoverflowApi
 import dagger.Component
 import javax.inject.Singleton
 
-//todo 8 (finish)
 @AppScope
 @Component(modules = [AppModule::class])
 interface AppComponent {

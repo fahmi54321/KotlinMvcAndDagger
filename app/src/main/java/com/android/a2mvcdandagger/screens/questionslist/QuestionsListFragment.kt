@@ -1,17 +1,16 @@
 package com.android.a2mvcdandagger.screens.questionslist
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.android.a2mvcdandagger.common.dependencyinjection.Service
 import com.android.a2mvcdandagger.questions.Question
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.fragments.BaseFragment
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
 class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
 
@@ -19,10 +18,10 @@ class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
     private var isDataLoaded = false
     lateinit var viewMvc: QuestionsListViewMvc
 
-    @field:Service private lateinit var fetchQuestionsUseCase: FetchQuestionsUseCase
-    @field:Service private lateinit var dialogsNavigator: DialogsNavigator
-    @field:Service private lateinit var screenNavigator: ScreenNavigator
-    @field:Service private lateinit var viewMvcFactory: ViewMvcFactory
+    @Inject lateinit var fetchQuestionsUseCase: FetchQuestionsUseCase
+    @Inject lateinit var dialogsNavigator: DialogsNavigator
+    @Inject lateinit var screenNavigator: ScreenNavigator
+    @Inject lateinit var viewMvcFactory: ViewMvcFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         injector.inject(this)
