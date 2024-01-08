@@ -1,9 +1,9 @@
 package com.android.a2mvcdandagger.screens.common.fragments
 
 import androidx.fragment.app.Fragment
-import com.android.a2mvcdandagger.common.dependencyinjection.DaggerPresentationComponent
 import com.android.a2mvcdandagger.common.dependencyinjection.Injector
-import com.android.a2mvcdandagger.common.dependencyinjection.PresentationModule
+import com.android.a2mvcdandagger.common.dependencyinjection.presentation.DaggerPresentationComponent
+import com.android.a2mvcdandagger.common.dependencyinjection.presentation.PresentationModule
 import com.android.a2mvcdandagger.screens.common.activities.BaseActivity
 
 open class BaseFragment:Fragment() {

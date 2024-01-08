@@ -1,10 +1,13 @@
-package com.android.a2mvcdandagger.common.dependencyinjection
+package com.android.a2mvcdandagger.common.dependencyinjection.activity
 
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import com.android.a2mvcdandagger.common.dependencyinjection.app.AppComponent
+import com.android.a2mvcdandagger.common.dependencyinjection.app.AppModule
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class ActivityModule(
@@ -12,9 +15,7 @@ class ActivityModule(
     private val appComponent: AppComponent
 ) {
 
-    val screenNavigator by lazy {
-        ScreenNavigator(activity)
-    }
+    //todo 2 hapus lazy initialization pada screen navigator
 
     @Provides
     fun application() = appComponent.application()
@@ -25,8 +26,10 @@ class ActivityModule(
     @Provides
     fun activity() = activity
 
+    //todo 3 (next ActivityComponent)
     @Provides
-    fun screenNavigator (activity: AppCompatActivity) = screenNavigator
+    @ActivityScope
+    fun screenNavigator (activity: AppCompatActivity) = ScreenNavigator(activity)
 
     @Provides
     fun layoutInflater() = LayoutInflater.from(activity)

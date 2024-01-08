@@ -1,7 +1,9 @@
-package com.android.a2mvcdandagger.common.dependencyinjection
+package com.android.a2mvcdandagger.common.dependencyinjection.presentation
 
 import android.view.LayoutInflater
 import androidx.fragment.app.FragmentManager
+import com.android.a2mvcdandagger.common.dependencyinjection.activity.ActivityComponent
+import com.android.a2mvcdandagger.common.dependencyinjection.activity.ActivityModule
 import com.android.a2mvcdandagger.networking.StackoverflowApi
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
 import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
@@ -15,6 +17,7 @@ import dagger.Provides
 class PresentationModule(
     private val activityComponent: ActivityComponent
 ) {
+
 
     @Provides
     fun layoutInflater() = activityComponent.layoutInflater()
