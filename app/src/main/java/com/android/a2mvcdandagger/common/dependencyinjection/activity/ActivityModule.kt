@@ -12,14 +12,7 @@ import javax.inject.Singleton
 @Module
 class ActivityModule(
     val activity: AppCompatActivity,
-    private val appComponent: AppComponent
 ) {
-
-    @Provides
-    fun application() = appComponent.application()
-
-    @Provides
-    fun stackoverflowApi() = appComponent.stackoverflowApi()
 
     @Provides
     fun activity() = activity
@@ -29,7 +22,7 @@ class ActivityModule(
     fun screenNavigator (activity: AppCompatActivity) = ScreenNavigator(activity)
 
     @Provides
-    fun layoutInflater(): LayoutInflater = LayoutInflater.from(activity)
+    fun layoutInflater() = LayoutInflater.from(activity)
 
     @Provides
     fun fragmentManager() = activity.supportFragmentManager
