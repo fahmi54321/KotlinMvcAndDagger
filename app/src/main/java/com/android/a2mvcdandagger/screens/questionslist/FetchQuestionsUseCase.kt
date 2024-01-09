@@ -9,7 +9,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
-//todo 2 hapus UseCasesModule (next PresentationComponent)
 class FetchQuestionsUseCase @Inject constructor(
     private val stackoverflowApi: StackoverflowApi
 ) {

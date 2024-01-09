@@ -14,17 +14,12 @@ class ActivityModule(
     val activity: AppCompatActivity,
 ) {
 
-    //todo 1 tidak bisa inject otomatis karena tidak mengakses constructor activity
     @Provides
     fun activity() = activity
 
-    //todo 4 hapus screenNavigator (next ScreenNavigator)
-
-    //todo 2 tidak bisa inject otomatis karena tidak mengakses constructor layoutInflater
     @Provides
     fun layoutInflater() = LayoutInflater.from(activity)
 
-    //todo 3 tidak bisa inject otomatis karena tidak mengakses constructor fragmentManager
     @Provides
     fun fragmentManager() = activity.supportFragmentManager
 }
