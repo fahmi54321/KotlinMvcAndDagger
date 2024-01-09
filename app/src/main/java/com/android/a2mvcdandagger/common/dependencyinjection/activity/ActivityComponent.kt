@@ -1,17 +1,13 @@
 package com.android.a2mvcdandagger.common.dependencyinjection.activity
 
 import com.android.a2mvcdandagger.common.dependencyinjection.presentation.PresentationComponent
-import com.android.a2mvcdandagger.common.dependencyinjection.presentation.PresentationModule
-import com.android.a2mvcdandagger.common.dependencyinjection.presentation.UseCasesModule
 import dagger.Subcomponent
 
 @ActivityScope
 @Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {
 
-    fun newPresentationComponent(
-        presentationModule: PresentationModule,
-        useCasesModule: UseCasesModule
-    ): PresentationComponent
+    //todo 4 hapus UseCasesModule (next BaseActivity)
+    fun newPresentationComponent(): PresentationComponent
 
 }

@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.android.a2mvcdandagger.screens.questiondetails.QuestionDetailsListViewMvc
 import com.android.a2mvcdandagger.screens.questionslist.QuestionsListViewMvc
+import javax.inject.Inject
 
-class ViewMvcFactory(
+class ViewMvcFactory @Inject constructor(
     private val layoutInflater: LayoutInflater
 ) {
 
