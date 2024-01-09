@@ -10,7 +10,6 @@ import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
 import com.android.a2mvcdandagger.screens.questionslist.QuestionsListFragment
 import dagger.Component
 
-//todo 1 (next PresentationModule)
 @PresentationScope
 @Component(dependencies = [ActivityComponent::class], modules = [PresentationModule::class])
 interface PresentationComponent {

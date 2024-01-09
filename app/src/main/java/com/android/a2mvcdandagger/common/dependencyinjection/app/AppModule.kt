@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class AppModule(val application: Application) {
+class AppModule(private val application: Application) {
 
     @AppScope
     @Provides

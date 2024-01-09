@@ -15,8 +15,6 @@ import dagger.Provides
 @Module
 class PresentationModule {
 
-    // todo 2 (hapus semua ketergantungan pada activity component) (next BaseActivity)
-
     @Provides
     fun viewMvcFactory(layoutInflater: LayoutInflater) = ViewMvcFactory(layoutInflater)
 
