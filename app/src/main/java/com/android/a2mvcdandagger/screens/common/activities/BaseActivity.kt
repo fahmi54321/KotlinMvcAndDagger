@@ -13,7 +13,6 @@ open class BaseActivity:AppCompatActivity() {
         appComponent.newActivityCompononent(ActivityModule(this))
     }
 
-    //todo 3 (next BaseFragment)
     private val presentationComponent by lazy {
         activityComponent.newPresentationComponent(PresentationModule())
     }

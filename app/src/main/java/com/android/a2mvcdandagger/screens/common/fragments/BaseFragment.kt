@@ -6,7 +6,6 @@ import com.android.a2mvcdandagger.screens.common.activities.BaseActivity
 
 open class BaseFragment : Fragment() {
 
-    //todo 4 (finish)
     private val presentationModule by lazy {
         (requireActivity() as BaseActivity).activityComponent.newPresentationComponent(
             PresentationModule()
