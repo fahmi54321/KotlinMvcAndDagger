@@ -13,14 +13,14 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class PresentationModule {
+class UseCasesModule {
 
-    //todo 2 hapus provides use case (next PresentationComponent)
-
-    @Provides
-    fun viewMvcFactory(layoutInflater: LayoutInflater) = ViewMvcFactory(layoutInflater)
+    //todo 1 (next PresentationModule)
 
     @Provides
-    fun dialogNavigator(fragmentManager: FragmentManager) = DialogsNavigator(fragmentManager)
+    fun fetchQuestionsUseCase(stackoverflowApi: StackoverflowApi) = FetchQuestionsUseCase(stackoverflowApi)
+
+    @Provides
+    fun fetchDetailQuestionsUseCase(stackoverflowApi: StackoverflowApi) = FetchDetailQuestionsUseCase(stackoverflowApi)
 
 }

@@ -6,11 +6,14 @@ import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
 import com.android.a2mvcdandagger.screens.questiondetails.FetchDetailQuestionsUseCase
 import com.android.a2mvcdandagger.screens.questiondetails.QuestionDetailsActivity
+import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
 import com.android.a2mvcdandagger.screens.questionslist.QuestionsListFragment
+import dagger.Component
 import dagger.Subcomponent
 
+//todo 3 (next ActivityComponent)
 @PresentationScope
-@Subcomponent(modules = [PresentationModule::class])
+@Subcomponent(modules = [PresentationModule::class,UseCasesModule::class])
 interface PresentationComponent {
     fun inject(questionsListFragment: QuestionsListFragment)
     fun inject(questionDetailsActivity: QuestionDetailsActivity)
