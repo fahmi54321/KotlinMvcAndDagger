@@ -15,8 +15,6 @@ import dagger.Provides
 @Module
 class PresentationModule {
 
-    //todo 2 hapus provides use case (next PresentationComponent)
-
     @Provides
     fun viewMvcFactory(layoutInflater: LayoutInflater) = ViewMvcFactory(layoutInflater)
 

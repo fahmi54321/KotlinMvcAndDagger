@@ -15,8 +15,6 @@ import dagger.Provides
 @Module
 class UseCasesModule {
 
-    //todo 1 (next PresentationModule)
-
     @Provides
     fun fetchQuestionsUseCase(stackoverflowApi: StackoverflowApi) = FetchQuestionsUseCase(stackoverflowApi)
 
