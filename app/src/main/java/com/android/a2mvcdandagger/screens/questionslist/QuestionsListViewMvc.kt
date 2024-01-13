@@ -12,6 +12,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.android.a2mvcdandagger.R
 import com.android.a2mvcdandagger.questions.Question
 import com.android.a2mvcdandagger.screens.common.viewmvc.BaseViewMvc
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class QuestionsListViewMvc(
     private val layoutInflater: LayoutInflater,
@@ -25,15 +26,18 @@ class QuestionsListViewMvc(
     interface Listener {
         fun onRefreshClicked()
         fun onQuestionClicked(clickQuestion: Question)
+        fun onToViewModelActivity()
     }
 
     private val swipeRefresh: SwipeRefreshLayout
     private val recyclerView: RecyclerView
     private val questionsAdapter: QuestionsAdapter
+    private val fbViewModel:FloatingActionButton
 
     init {
 
         swipeRefresh = findViewById(R.id.swipeRefresh)
+        fbViewModel = findViewById(R.id.fbViewModel)
         swipeRefresh.setOnRefreshListener {
 
             for (listener in listeners) {
@@ -50,6 +54,12 @@ class QuestionsListViewMvc(
             }
         }
         recyclerView.adapter = questionsAdapter
+
+        fbViewModel.setOnClickListener {
+            for (listener in listeners){
+                listener.onToViewModelActivity()
+            }
+        }
     }
 
     fun bindQuestions(questions: List<Question>) {
