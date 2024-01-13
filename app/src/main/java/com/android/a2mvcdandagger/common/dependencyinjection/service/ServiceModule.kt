@@ -11,10 +11,9 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-//todo 1 (next ServiceComponent)
 @Module
 class ServiceModule(
-    val service: Service,
+    private val service: Service,
 ) {
 
     @Provides
