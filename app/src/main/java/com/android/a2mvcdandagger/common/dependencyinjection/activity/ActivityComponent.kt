@@ -9,4 +9,11 @@ interface ActivityComponent {
 
     fun newPresentationComponent(): PresentationComponent
 
+    //todo 2 (next AppComponent)
+    @Subcomponent.Builder
+    interface Builder {
+        fun activityModule(activityModule: ActivityModule): Builder
+        fun build(): ActivityComponent
+    }
+
 }

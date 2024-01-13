@@ -17,9 +17,18 @@ class ActivityModule(
     @Provides
     fun activity() = activity
 
-    @Provides
-    fun layoutInflater() = LayoutInflater.from(activity)
 
-    @Provides
-    fun fragmentManager() = activity.supportFragmentManager
+    //todo 1 (next ActivityComponent)
+    companion object {
+
+        @Provides
+        @ActivityScope
+        fun screenNavigator(activity: AppCompatActivity) = ScreenNavigator(activity)
+
+        @Provides
+        fun layoutInflater(activity: AppCompatActivity) = LayoutInflater.from(activity)
+
+        @Provides
+        fun fragmentManager(activity: AppCompatActivity) = activity.supportFragmentManager
+    }
 }

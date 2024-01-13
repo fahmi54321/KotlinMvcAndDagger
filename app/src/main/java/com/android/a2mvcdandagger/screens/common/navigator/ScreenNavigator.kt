@@ -6,8 +6,15 @@ import com.android.a2mvcdandagger.common.dependencyinjection.activity.ActivitySc
 import com.android.a2mvcdandagger.screens.questiondetails.QuestionDetailsActivity
 import javax.inject.Inject
 
-@ActivityScope
-class ScreenNavigator @Inject constructor(
+//todo 5 (finish) untuk mengakses screen navigator lihat contoh pada QuestionDetailsActivity
+// yaitu
+
+/**
+    @Inject lateinit var screenNavigator: ScreenNavigator
+    injector.inject(this)
+ **/
+
+class ScreenNavigator(
     private val activity: AppCompatActivity
 ) {
 
