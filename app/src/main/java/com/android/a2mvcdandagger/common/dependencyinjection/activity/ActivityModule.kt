@@ -10,25 +10,15 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class ActivityModule(
-    val activity: AppCompatActivity,
-) {
+object ActivityModule {
 
     @Provides
-    fun activity() = activity
+    @ActivityScope
+    fun screenNavigator(activity: AppCompatActivity) = ScreenNavigator(activity)
 
+    @Provides
+    fun layoutInflater(activity: AppCompatActivity): LayoutInflater = LayoutInflater.from(activity)
 
-    //todo 1 (next ActivityComponent)
-    companion object {
-
-        @Provides
-        @ActivityScope
-        fun screenNavigator(activity: AppCompatActivity) = ScreenNavigator(activity)
-
-        @Provides
-        fun layoutInflater(activity: AppCompatActivity) = LayoutInflater.from(activity)
-
-        @Provides
-        fun fragmentManager(activity: AppCompatActivity) = activity.supportFragmentManager
-    }
+    @Provides
+    fun fragmentManager(activity: AppCompatActivity) = activity.supportFragmentManager
 }

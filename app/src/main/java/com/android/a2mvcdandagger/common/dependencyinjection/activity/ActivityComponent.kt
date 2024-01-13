@@ -1,6 +1,8 @@
 package com.android.a2mvcdandagger.common.dependencyinjection.activity
 
+import androidx.appcompat.app.AppCompatActivity
 import com.android.a2mvcdandagger.common.dependencyinjection.presentation.PresentationComponent
+import dagger.BindsInstance
 import dagger.Subcomponent
 
 @ActivityScope
@@ -9,9 +11,9 @@ interface ActivityComponent {
 
     fun newPresentationComponent(): PresentationComponent
 
-    //todo 2 (next AppComponent)
     @Subcomponent.Builder
     interface Builder {
+        @BindsInstance fun activity(activity: AppCompatActivity): Builder
         fun activityModule(activityModule: ActivityModule): Builder
         fun build(): ActivityComponent
     }
