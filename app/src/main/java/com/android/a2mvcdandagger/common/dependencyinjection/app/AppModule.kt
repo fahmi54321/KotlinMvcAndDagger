@@ -26,7 +26,6 @@ class AppModule(val application: Application) {
             .build()
     }
 
-    //todo 4
     @AppScope
     @Provides
     @Retrofit2
@@ -38,7 +37,6 @@ class AppModule(val application: Application) {
     }
 
 
-    //todo 2
     @AppScope
     @Provides
     fun urlProvider() = UrlProvider()
@@ -46,9 +44,8 @@ class AppModule(val application: Application) {
     @Provides
     fun application() = application
 
-    //todo 5 (finish)
     @AppScope
     @Provides
-    fun stackoverflowApi(@Retrofit1 retrofit: Retrofit) = retrofit.create(StackoverflowApi::class.java)
+    fun stackoverflowApi(@Retrofit1 retrofit: Retrofit): StackoverflowApi = retrofit.create(StackoverflowApi::class.java)
 
 }
