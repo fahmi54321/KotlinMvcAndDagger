@@ -9,16 +9,16 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 class ViewMvcFactory @Inject constructor(
-    private val layoutInflater: LayoutInflater,
+    private val layoutInflaterProvider: Provider<LayoutInflater>,
     private val imageLoaderProvider: Provider<ImageLoader> //todo 1 (finish)
 ) {
 
     fun newQuestionsListViewMvc(parent: ViewGroup?): QuestionsListViewMvc {
-        return QuestionsListViewMvc(layoutInflater, parent)
+        return QuestionsListViewMvc(layoutInflaterProvider.get(), parent)
     }
 
     fun newQuestionsDetailsViewMvc(parent: ViewGroup?): QuestionDetailsListViewMvc {
-        return QuestionDetailsListViewMvc(layoutInflater,imageLoaderProvider.get(),parent)
+        return QuestionDetailsListViewMvc(layoutInflaterProvider.get(),imageLoaderProvider.get(),parent)
     }
 
 }
