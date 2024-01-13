@@ -2,24 +2,23 @@ package com.android.a2mvcdandagger.common.dependencyinjection.activity
 
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import com.android.a2mvcdandagger.common.dependencyinjection.app.AppComponent
-import com.android.a2mvcdandagger.common.dependencyinjection.app.AppModule
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
+import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigatorImpl
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
-class ActivityModule(
-    val activity: AppCompatActivity,
-) {
+abstract class ActivityModule {
 
-    @Provides
-    fun activity() = activity
+    @Binds
+    abstract fun screenNavigator(screenNavigatorImpl: ScreenNavigatorImpl): ScreenNavigator
 
-    @Provides
-    fun layoutInflater() = LayoutInflater.from(activity)
+    companion object{
+        @Provides
+        fun layoutInflater(activity: AppCompatActivity): LayoutInflater = LayoutInflater.from(activity)
 
-    @Provides
-    fun fragmentManager() = activity.supportFragmentManager
+        @Provides
+        fun fragmentManager(activity: AppCompatActivity) = activity.supportFragmentManager
+    }
 }

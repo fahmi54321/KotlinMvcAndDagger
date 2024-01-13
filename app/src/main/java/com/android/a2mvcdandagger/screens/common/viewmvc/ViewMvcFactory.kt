@@ -6,18 +6,19 @@ import com.android.a2mvcdandagger.screens.common.imageloader.ImageLoader
 import com.android.a2mvcdandagger.screens.questiondetails.QuestionDetailsListViewMvc
 import com.android.a2mvcdandagger.screens.questionslist.QuestionsListViewMvc
 import javax.inject.Inject
+import javax.inject.Provider
 
 class ViewMvcFactory @Inject constructor(
-    private val layoutInflater: LayoutInflater,
-    private val imageLoader: ImageLoader //todo 6 (next ViewMvcFactory)
+    private val layoutInflaterProvider: Provider<LayoutInflater>,
+    private val imageLoaderProvider: Provider<ImageLoader>
 ) {
 
     fun newQuestionsListViewMvc(parent: ViewGroup?): QuestionsListViewMvc {
-        return QuestionsListViewMvc(layoutInflater, parent)
+        return QuestionsListViewMvc(layoutInflaterProvider.get(), parent)
     }
 
     fun newQuestionsDetailsViewMvc(parent: ViewGroup?): QuestionDetailsListViewMvc {
-        return QuestionDetailsListViewMvc(layoutInflater,imageLoader,parent) //todo 7 (finish)
+        return QuestionDetailsListViewMvc(layoutInflaterProvider.get(),imageLoaderProvider.get(),parent)
     }
 
 }

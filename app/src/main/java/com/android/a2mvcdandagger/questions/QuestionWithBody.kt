@@ -7,5 +7,5 @@ data class QuestionWithBody(
         @SerializedName("title") val title: String,
         @SerializedName("question_id") val id: String,
         @SerializedName("body") val body: String,
-        @SerializedName("owner") val owner: User //todo 2 (next QuestionDetailsListViewMvc)
+        @SerializedName("owner") val owner: User
 )
