@@ -6,6 +6,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import javax.inject.Inject
 
+// todo 6 (next ViewMvcFactory)
 class ImageLoader @Inject constructor(
     private val activity: AppCompatActivity
 ) {

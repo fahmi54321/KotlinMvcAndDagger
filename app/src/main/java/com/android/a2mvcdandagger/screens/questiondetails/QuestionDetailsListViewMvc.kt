@@ -15,7 +15,7 @@ import com.android.a2mvcdandagger.screens.common.viewmvc.BaseViewMvc
 
 class QuestionDetailsListViewMvc(
     layoutInflater: LayoutInflater,
-    private val imageLoader: ImageLoader,
+    private val imageLoader: ImageLoader, // todo 4
     parent: ViewGroup?
 ): BaseViewMvc<QuestionDetailsListViewMvc.Listeners>(
     layoutInflater,
@@ -68,7 +68,7 @@ class QuestionDetailsListViewMvc(
             txtQuestionBody.text = Html.fromHtml(question.body)
         }
 
-        imageLoader.loadImage(question.owner.imageUrl,imgUser)
+        imageLoader.loadImage(question.owner.imageUrl,imgUser) // todo 5 (next ImageLoader)
         txtUserName.text = question.owner.name
     }
 
