@@ -57,7 +57,7 @@ class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Liste
                 val result = fetchDetailQuestionsUseCase.fetchQuestionDetails(questionId)
                 when (result) {
                     is FetchDetailQuestionsUseCase.ResultDetails.Success -> {
-                        mvc.bindQuestions(result.questionId)
+                        mvc.bindQuestions(result.question)
                     }
                     is FetchDetailQuestionsUseCase.ResultDetails.Failure -> {
                         onFetchFailed()

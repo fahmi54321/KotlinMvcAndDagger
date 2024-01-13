@@ -1,11 +1,10 @@
 package com.android.a2mvcdandagger.screens.questiondetails
 
 import com.android.a2mvcdandagger.networking.StackoverflowApi
+import com.android.a2mvcdandagger.questions.QuestionWithBody
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
 class FetchDetailQuestionsUseCase @Inject constructor(
@@ -13,7 +12,7 @@ class FetchDetailQuestionsUseCase @Inject constructor(
 ) {
 
     sealed class ResultDetails{
-        class Success(val questionId: String) :ResultDetails()
+        class Success(val question: QuestionWithBody) :ResultDetails()
         object Failure:ResultDetails()
     }
 
@@ -22,7 +21,7 @@ class FetchDetailQuestionsUseCase @Inject constructor(
             try {
                 val response = stackoverflowApi.questionDetails(detailsId)
                 if (response.isSuccessful && response.body() != null){
-                    return@withContext ResultDetails.Success(response.body()!!.question.body)
+                    return@withContext ResultDetails.Success(response.body()!!.question)
                 }else{
                     return@withContext ResultDetails.Failure
                 }
