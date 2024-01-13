@@ -10,7 +10,7 @@ import javax.inject.Provider
 
 class ViewMvcFactory @Inject constructor(
     private val layoutInflaterProvider: Provider<LayoutInflater>,
-    private val imageLoaderProvider: Provider<ImageLoader> //todo 1 (finish)
+    private val imageLoaderProvider: Provider<ImageLoader>
 ) {
 
     fun newQuestionsListViewMvc(parent: ViewGroup?): QuestionsListViewMvc {
