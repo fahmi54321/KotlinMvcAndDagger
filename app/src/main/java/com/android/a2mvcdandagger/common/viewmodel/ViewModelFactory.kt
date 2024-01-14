@@ -8,7 +8,6 @@ import java.lang.RuntimeException
 import javax.inject.Inject
 import javax.inject.Provider
 
-//todo 1 (next MyViewModel)
 class ViewModelFactory @Inject constructor(
     private val myViewModelProvider: Provider<MyViewModel>,
     private val myViewModelProvider2: Provider<MyViewModel2>

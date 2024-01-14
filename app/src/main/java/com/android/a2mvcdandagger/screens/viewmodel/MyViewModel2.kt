@@ -8,7 +8,6 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Provider
 
-//todo 3 (next ViewModelActivity)
 class MyViewModel2 @Inject constructor(
     private val fetchQuestionsUseCase: FetchQuestionsUseCase
 ):ViewModel() {

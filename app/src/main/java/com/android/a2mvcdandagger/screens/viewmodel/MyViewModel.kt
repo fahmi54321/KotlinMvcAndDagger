@@ -2,11 +2,9 @@ package com.android.a2mvcdandagger.screens.viewmodel
 
 import androidx.lifecycle.*
 import com.android.a2mvcdandagger.questions.Question
-import com.android.a2mvcdandagger.screens.questiondetails.FetchDetailQuestionsUseCase
 import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Provider
 
 class MyViewModel @Inject constructor(
     private val fetchQuestionsUseCase: FetchQuestionsUseCase
@@ -26,7 +24,5 @@ class MyViewModel @Inject constructor(
         }
 
     }
-
-    //todo 2 remove factory(next MyViewModel2)
 
 }
