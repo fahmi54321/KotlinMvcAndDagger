@@ -8,9 +8,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Provider
 
-class MyViewModel @Inject constructor(
+//todo 3 (next ViewModelActivity)
+class MyViewModel2 @Inject constructor(
     private val fetchQuestionsUseCase: FetchQuestionsUseCase
 ):ViewModel() {
+
 
     private val _questions = MutableLiveData<List<Question>>()
     val question: LiveData<List<Question>> = _questions
@@ -26,7 +28,5 @@ class MyViewModel @Inject constructor(
         }
 
     }
-
-    //todo 2 remove factory(next MyViewModel2)
 
 }
