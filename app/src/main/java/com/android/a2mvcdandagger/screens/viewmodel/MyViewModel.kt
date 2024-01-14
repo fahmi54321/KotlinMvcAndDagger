@@ -9,7 +9,6 @@ import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-//todo 1 (next ViewModelActivity)
 class MyViewModel @Inject constructor(
     private val fetchQuestionsUseCase: FetchQuestionsUseCase
 ):ViewModel() {

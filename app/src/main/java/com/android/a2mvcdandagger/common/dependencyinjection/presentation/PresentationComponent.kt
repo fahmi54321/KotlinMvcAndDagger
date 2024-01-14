@@ -12,7 +12,6 @@ import com.android.a2mvcdandagger.screens.viewmodel.ViewModelActivity
 import dagger.Component
 import dagger.Subcomponent
 
-//todo 3 hapus UseCasesModule (next ActivityComponent)
 @PresentationScope
 @Subcomponent()
 interface PresentationComponent {

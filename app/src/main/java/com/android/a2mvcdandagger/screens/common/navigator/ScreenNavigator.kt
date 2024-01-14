@@ -1,34 +1,11 @@
 package com.android.a2mvcdandagger.screens.common.navigator
 
-import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
-import com.android.a2mvcdandagger.common.dependencyinjection.activity.ActivityScope
-import com.android.a2mvcdandagger.screens.questiondetails.QuestionDetailsActivity
-import com.android.a2mvcdandagger.screens.viewmodel.ViewModelActivity
-import javax.inject.Inject
+interface ScreenNavigator {
 
-//todo 5 (finish) untuk mengakses screen navigator lihat contoh pada QuestionDetailsActivity
-// yaitu
+    fun toQuestionDetails(questionId: String)
 
-/**
-    @Inject lateinit var screenNavigator: ScreenNavigator
-    injector.inject(this)
- **/
+    fun navigateBack()
 
-class ScreenNavigator(
-    private val activity: AppCompatActivity
-) {
-
-    fun toQuestionDetails(questionId: String) {
-        QuestionDetailsActivity.start(activity, questionId)
-    }
-
-    fun navigateBack() {
-        activity.onBackPressed()
-    }
-
-    fun toViewModelActivity() {
-        ViewModelActivity.start(activity)
-    }
+    fun toViewModelActivity()
 
 }

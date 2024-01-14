@@ -3,6 +3,7 @@ package com.android.a2mvcdandagger.screens.common.navigator
 import androidx.appcompat.app.AppCompatActivity
 import com.android.a2mvcdandagger.common.dependencyinjection.activity.ActivityScope
 import com.android.a2mvcdandagger.screens.questiondetails.QuestionDetailsActivity
+import com.android.a2mvcdandagger.screens.viewmodel.ViewModelActivity
 import javax.inject.Inject
 
 @ActivityScope
@@ -14,6 +15,10 @@ class ScreenNavigatorImpl @Inject constructor(private val activity: AppCompatAct
 
     override fun navigateBack() {
         activity.onBackPressed()
+    }
+
+    override fun toViewModelActivity() {
+        ViewModelActivity.start(activity)
     }
 
 }
