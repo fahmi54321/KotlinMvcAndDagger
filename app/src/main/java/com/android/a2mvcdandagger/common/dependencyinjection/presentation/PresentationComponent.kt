@@ -13,7 +13,7 @@ import dagger.Component
 import dagger.Subcomponent
 
 @PresentationScope
-@Subcomponent(modules = [ViewModelModule::class]) //todo 3 (next ViewModelFactory)
+@Subcomponent(modules = [ViewModelModule::class])
 interface PresentationComponent {
     fun inject(questionsListFragment: QuestionsListFragment)
     fun inject(questionDetailsActivity: QuestionDetailsActivity)

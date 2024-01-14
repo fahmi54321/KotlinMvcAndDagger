@@ -8,14 +8,17 @@ import java.lang.RuntimeException
 import javax.inject.Inject
 import javax.inject.Provider
 
-//todo 4 (finish)
 class ViewModelFactory @Inject constructor(
     private val providers: Map<Class<out ViewModel>,@JvmSuppressWildcards Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
 
         val provider = providers[modelClass]
-        return provider?.get() as T ?: throw RuntimeException("unsupported viewmodel type: $modelClass")
+        if(provider != null){
+            return provider.get() as T
+        }else{
+            throw RuntimeException("unsupported viewmodel type: $modelClass")
+        }
 
     }
 }

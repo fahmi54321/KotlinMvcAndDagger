@@ -8,7 +8,6 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
-//todo 1 (next ViewModelKey)
 @Module
 abstract class ViewModelModule {
 
