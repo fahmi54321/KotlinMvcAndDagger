@@ -16,20 +16,19 @@ import javax.inject.Provider
 
 class ViewModelActivity : BaseActivity() {
 
-    private lateinit var myViewModel: MyViewModel //todo 2
-    @Inject lateinit var factory: MyViewModel.MyViewModelFactory //todo 3
+    private lateinit var myViewModel: MyViewModel
+    @Inject lateinit var factory: MyViewModel.MyViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         injector.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_model)
 
-        //todo 4 (finish)
         myViewModel = ViewModelProvider(this,factory)[MyViewModel::class.java]
 
-        myViewModel.question.observe(this, {
+        myViewModel.question.observe(this) {
             Toast.makeText(this, "fetched ${it.size} questions", Toast.LENGTH_SHORT).show()
-        })
+        }
     }
 
     companion object {

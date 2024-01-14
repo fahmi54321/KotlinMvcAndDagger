@@ -27,7 +27,6 @@ class MyViewModel @Inject constructor(
 
     }
 
-    //todo 1 (next ViewModelActivity)
     class MyViewModelFactory @Inject constructor(
         private val fetchQuestionsUseCaseProvider: Provider<FetchQuestionsUseCase>
     ) : ViewModelProvider.Factory {
