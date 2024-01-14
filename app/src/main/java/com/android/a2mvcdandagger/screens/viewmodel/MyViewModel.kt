@@ -28,7 +28,6 @@ class MyViewModel @Inject constructor(
 
     }
 
-    //todo 1 (finish)
     class MyViewModelFactory @Inject constructor(
         private val myViewModelProvider: Provider<MyViewModel>
     ) : ViewModelProvider.Factory {
