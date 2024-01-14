@@ -2,6 +2,7 @@ package com.android.a2mvcdandagger.common.dependencyinjection.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import com.android.a2mvcdandagger.common.dependencyinjection.presentation.PresentationComponent
+import com.android.a2mvcdandagger.common.dependencyinjection.presentation.PresentationModule
 import dagger.BindsInstance
 import dagger.Subcomponent
 
@@ -13,7 +14,8 @@ interface ActivityComponent {
 
     @Subcomponent.Builder
     interface Builder {
-        @BindsInstance fun activity(activity: AppCompatActivity): Builder
+        @BindsInstance fun activity(activity:AppCompatActivity):Builder
+        fun activityModule(activityModule: ActivityModule): Builder
         fun build(): ActivityComponent
     }
 

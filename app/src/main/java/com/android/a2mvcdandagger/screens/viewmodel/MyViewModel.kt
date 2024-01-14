@@ -2,15 +2,18 @@ package com.android.a2mvcdandagger.screens.viewmodel
 
 import androidx.lifecycle.*
 import com.android.a2mvcdandagger.questions.Question
+import com.android.a2mvcdandagger.screens.questiondetails.FetchDetailQuestionsUseCase
 import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Provider
 
 class MyViewModel @Inject constructor(
-    private val fetchQuestionsUseCase: FetchQuestionsUseCase
+    private val fetchQuestionsUseCase: FetchQuestionsUseCase,
+    private val savedStateHandle: SavedStateHandle //todo 1
 ):ViewModel() {
 
-    private val _questions = MutableLiveData<List<Question>>()
+    private val _questions : MutableLiveData<List<Question>> = savedStateHandle.getLiveData("questions") //todo 2 (next ViewModelFactory)
     val question: LiveData<List<Question>> = _questions
 
     init {
@@ -24,5 +27,4 @@ class MyViewModel @Inject constructor(
         }
 
     }
-
 }
