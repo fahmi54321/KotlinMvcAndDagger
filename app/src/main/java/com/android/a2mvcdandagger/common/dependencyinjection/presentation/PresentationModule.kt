@@ -4,7 +4,6 @@ import androidx.savedstate.SavedStateRegistryOwner
 import dagger.Module
 import dagger.Provides
 
-//todo 7 (next ActivityComponent)
 @Module
 class PresentationModule(private val savedStateRegistryOwner: SavedStateRegistryOwner) {
 

@@ -8,7 +8,7 @@ open class BaseDialog:DialogFragment() {
 
     private val presentationModule by lazy {
         (requireActivity() as BaseActivity).activityComponent.newPresentationComponent(
-            PresentationModule(this) //todo 11 (next Questions)
+            PresentationModule(this)
         )
     }
 

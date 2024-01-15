@@ -16,12 +16,11 @@ import javax.inject.Provider
 
 class ViewModelFactory @Inject constructor(
     private val fetchQuestionsUseCaseProvider: Provider<FetchQuestionsUseCase>,
-    saveStatedRegistryOwner: SavedStateRegistryOwner //todo 3
-) : AbstractSavedStateViewModelFactory(saveStatedRegistryOwner, null) { //todo 4
+    saveStatedRegistryOwner: SavedStateRegistryOwner
+) : AbstractSavedStateViewModelFactory(saveStatedRegistryOwner, null) {
 
 
-    //todo 5 (next PresentationComponent)
-    override fun <T : ViewModel?> create(
+    override fun <T : ViewModel> create(
         key: String,
         modelClass: Class<T>,
         handle: SavedStateHandle

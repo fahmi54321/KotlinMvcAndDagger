@@ -13,7 +13,7 @@ import dagger.Component
 import dagger.Subcomponent
 
 @PresentationScope
-@Subcomponent(modules = [PresentationModule::class]) //todo 6 (next PresentationModule)
+@Subcomponent(modules = [PresentationModule::class])
 interface PresentationComponent {
     fun inject(questionsListFragment: QuestionsListFragment)
     fun inject(questionDetailsActivity: QuestionDetailsActivity)

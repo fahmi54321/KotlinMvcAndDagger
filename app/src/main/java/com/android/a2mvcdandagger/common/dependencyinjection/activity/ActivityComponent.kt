@@ -10,12 +10,11 @@ import dagger.Subcomponent
 @Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {
 
-    fun newPresentationComponent(): PresentationComponent
+    fun newPresentationComponent(presentationModule: PresentationModule): PresentationComponent
 
     @Subcomponent.Builder
     interface Builder {
-        @BindsInstance fun activity(activity:AppCompatActivity):Builder
-        fun activityModule(activityModule: ActivityModule): Builder
+        @BindsInstance fun activity(activity: AppCompatActivity): Builder
         fun build(): ActivityComponent
     }
 
