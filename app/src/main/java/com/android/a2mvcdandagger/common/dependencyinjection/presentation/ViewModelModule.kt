@@ -7,7 +7,6 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
-//todo 6 (next PresentationComponent)
 @Module
 abstract class ViewModelModule {
 

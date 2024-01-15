@@ -14,13 +14,12 @@ import java.lang.RuntimeException
 import javax.inject.Inject
 import javax.inject.Provider
 
-// todo 8 (finish)
 class ViewModelFactory @Inject constructor(
     private val providersMap: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>,
     saveStatedRegistryOwner: SavedStateRegistryOwner
 ) : AbstractSavedStateViewModelFactory(saveStatedRegistryOwner, null) {
 
-    override fun <T : ViewModel?> create(
+    override fun <T : ViewModel> create(
         key: String,
         modelClass: Class<T>,
         handle: SavedStateHandle

@@ -4,6 +4,5 @@ import androidx.lifecycle.ViewModel
 import dagger.MapKey
 import kotlin.reflect.KClass
 
-//todo 5 (next ViewModelModule)
 @MapKey
 annotation class ViewModelKey(val value: KClass<out ViewModel>)

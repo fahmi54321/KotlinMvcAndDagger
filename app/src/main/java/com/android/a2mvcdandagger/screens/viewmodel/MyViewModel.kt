@@ -11,13 +11,11 @@ import javax.inject.Provider
 
 class MyViewModel @Inject constructor(
     private val fetchQuestionsUseCase: FetchQuestionsUseCase
-) : SavedStateViewModel() { //todo 2
+) : SavedStateViewModel() {
 
-    //todo 3
     private lateinit var _questions: MutableLiveData<List<Question>>
     val question: LiveData<List<Question>> get() = _questions
 
-    //todo 4 (next ViewModelKey)
     override fun init(savedStateHandle: SavedStateHandle) {
         _questions = savedStateHandle.getLiveData("questions")
 
