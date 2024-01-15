@@ -14,28 +14,25 @@ import java.lang.RuntimeException
 import javax.inject.Inject
 import javax.inject.Provider
 
+// todo 8 (finish)
 class ViewModelFactory @Inject constructor(
-    private val fetchQuestionsUseCaseProvider: Provider<FetchQuestionsUseCase>,
+    private val providersMap: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>,
     saveStatedRegistryOwner: SavedStateRegistryOwner
 ) : AbstractSavedStateViewModelFactory(saveStatedRegistryOwner, null) {
 
-
-    override fun <T : ViewModel> create(
+    override fun <T : ViewModel?> create(
         key: String,
         modelClass: Class<T>,
         handle: SavedStateHandle
     ): T {
-        return when (modelClass) {
-            MyViewModel::class.java -> MyViewModel(
-                fetchQuestionsUseCaseProvider.get(),
-                handle
-            ) as T
 
-            MyViewModel2::class.java -> MyViewModel2(
-                fetchQuestionsUseCaseProvider.get()
-            ) as T
+        val provider = providersMap[modelClass]
+        val viewModel = provider?.get() ?: throw RuntimeException("unsupported viewmodel type: $modelClass")
 
-            else -> throw RuntimeException("unsupported viewmodel type: $modelClass")
+        if (viewModel is SavedStateViewModel) {
+            viewModel.init(handle)
         }
+
+        return viewModel as T
     }
 }
