@@ -8,12 +8,15 @@ import com.android.a2mvcdandagger.networking.StackoverflowApi
 import com.android.a2mvcdandagger.networking.UrlProvider
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class AppModule(private val application: Application) {
+@InstallIn(SingletonComponent::class) //todo 2
+class AppModule { //todo 3 (remove application)
 
     @AppScope
     @Provides
@@ -35,16 +38,14 @@ class AppModule(private val application: Application) {
             .build()
     }
 
+    //todo 4 (remove application) (next remove semua presentation dan next ServiceModule)
 
     @AppScope
     @Provides
     fun urlProvider() = UrlProvider()
 
-    @Provides
-    fun application() = application
-
     @AppScope
     @Provides
-    fun stackoverflowApi(@Retrofit1 retrofit: Retrofit): StackoverflowApi = retrofit.create(StackoverflowApi::class.java)
+    fun stackoverflowApi(@Retrofit1 retrofit: Retrofit) = retrofit.create(StackoverflowApi::class.java)
 
 }

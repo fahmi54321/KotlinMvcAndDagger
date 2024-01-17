@@ -12,6 +12,7 @@ import com.android.a2mvcdandagger.questions.QuestionWithBody
 import com.android.a2mvcdandagger.screens.common.imageloader.ImageLoader
 import com.android.a2mvcdandagger.screens.common.toolbar.MyToolbar
 import com.android.a2mvcdandagger.screens.common.viewmvc.BaseViewMvc
+import dagger.hilt.android.AndroidEntryPoint
 
 class QuestionDetailsListViewMvc(
     layoutInflater: LayoutInflater,
