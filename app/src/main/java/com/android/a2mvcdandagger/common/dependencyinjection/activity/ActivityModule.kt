@@ -6,7 +6,6 @@ import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import dagger.Module
 import dagger.Provides
 
-//todo 1 hapus sevice actvity (next ActivityComponent)
 @Module
 object ActivityModule {
 

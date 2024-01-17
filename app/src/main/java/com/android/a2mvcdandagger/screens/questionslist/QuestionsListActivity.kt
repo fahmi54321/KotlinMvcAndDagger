@@ -5,9 +5,7 @@ import android.os.Bundle
 import com.android.a2mvcdandagger.R
 import com.android.a2mvcdandagger.screens.common.activities.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
 
-//todo 13 finish
 @AndroidEntryPoint
 class QuestionsListActivity : BaseActivity() {
 

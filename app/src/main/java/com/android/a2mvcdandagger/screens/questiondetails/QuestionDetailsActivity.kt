@@ -11,7 +11,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
-//todo 7
 @AndroidEntryPoint
 class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Listeners {
 
@@ -26,7 +25,7 @@ class QuestionDetailsActivity : BaseActivity(), QuestionDetailsListViewMvc.Liste
     @Inject lateinit var viewMvcFactory: ViewMvcFactory
 
 
-    override fun onCreate(savedInstanceState: Bundle?) { //todo 8 hapus inject (next ViewModelActivity)
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mvc = viewMvcFactory.newQuestionsDetailsViewMvc(null)
         setContentView(mvc.rootView)

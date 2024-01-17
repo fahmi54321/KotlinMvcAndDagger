@@ -15,7 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
-//todo 11
 @AndroidEntryPoint
 class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
 
@@ -28,7 +27,7 @@ class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
     @Inject lateinit var screenNavigator: ScreenNavigator
     @Inject lateinit var viewMvcFactory: ViewMvcFactory
 
-    override fun onCreate(savedInstanceState: Bundle?) { //todo 12 hapus inject (next QuestionsListActivity)
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 

@@ -14,9 +14,7 @@ import com.android.a2mvcdandagger.screens.questiondetails.QuestionDetailsActivit
 import com.android.a2mvcdandagger.screens.questionslist.FetchQuestionsUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import javax.inject.Provider
 
-//todo 9
 @AndroidEntryPoint
 class ViewModelActivity : BaseActivity() {
 
@@ -24,7 +22,7 @@ class ViewModelActivity : BaseActivity() {
     private lateinit var myViewModel2: MyViewModel2
     @Inject lateinit var factory: ViewModelFactory
 
-    override fun onCreate(savedInstanceState: Bundle?) { //todo 10 hapus inject(next QuestionsListFragment)
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_model)
 
