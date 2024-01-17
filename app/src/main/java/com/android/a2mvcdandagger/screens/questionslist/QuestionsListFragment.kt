@@ -11,9 +11,12 @@ import com.android.a2mvcdandagger.screens.common.fragments.BaseFragment
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
 import com.android.a2mvcdandagger.screens.common.viewmvc.ViewMvcFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
+//todo 11
+@AndroidEntryPoint
 class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
 
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
@@ -25,8 +28,7 @@ class QuestionsListFragment : BaseFragment(), QuestionsListViewMvc.Listener {
     @Inject lateinit var screenNavigator: ScreenNavigator
     @Inject lateinit var viewMvcFactory: ViewMvcFactory
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        injector.inject(this)
+    override fun onCreate(savedInstanceState: Bundle?) { //todo 12 hapus inject (next QuestionsListActivity)
         super.onCreate(savedInstanceState)
     }
 

@@ -1,17 +1,12 @@
 package com.android.a2mvcdandagger
 
 import android.app.Application
-import com.android.a2mvcdandagger.common.dependencyinjection.app.AppComponent
-import com.android.a2mvcdandagger.common.dependencyinjection.app.AppModule
-import com.android.a2mvcdandagger.common.dependencyinjection.app.DaggerAppComponent
+import dagger.hilt.android.HiltAndroidApp
 
+//todo 1 hapus app component,activitycomponent,presentationcomponent,dan servicecomponent
+//todo 2 (next BaseActivity)
+@HiltAndroidApp
 class MyApplication: Application() {
-
-    val appComponent:AppComponent by lazy {
-        DaggerAppComponent.builder()
-            .appModule(AppModule(this))
-            .build()
-    }
 
     override fun onCreate() {
         super.onCreate()
