@@ -2,23 +2,32 @@ package com.android.a2mvcdandagger.common.dependencyinjection.activity
 
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
+import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigatorImpl
 import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigator
+import com.android.a2mvcdandagger.screens.common.navigator.ScreenNavigatorImpl
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 
 @Module
-@InstallIn(ActivityComponent::class) //todo 1 kegunaan component bisa dilihat pada dokumentasi hilt (next AppModule)
-object ActivityModule {
+@InstallIn(ActivityComponent::class)
+abstract class ActivityModule {
 
-    @Provides
     @ActivityScope
-    fun screenNavigator(activity: AppCompatActivity) = ScreenNavigator(activity)
+    @Binds
+    abstract  fun screenNavigator(screenNavigatorImpl: ScreenNavigatorImpl) : ScreenNavigator
 
-    @Provides
-    fun layoutInflater(activity: AppCompatActivity) = LayoutInflater.from(activity)
+    @Binds
+    abstract  fun dialogNavigator(dialogsNavigatorImpl: DialogsNavigatorImpl) : DialogsNavigator
 
-    @Provides
-    fun fragmentManager(activity: AppCompatActivity) = activity.supportFragmentManager
+   companion object{
+       @Provides
+       fun layoutInflater(activity: AppCompatActivity): LayoutInflater = LayoutInflater.from(activity)
+
+       @Provides
+       fun fragmentManager(activity: AppCompatActivity) = activity.supportFragmentManager
+   }
 }
