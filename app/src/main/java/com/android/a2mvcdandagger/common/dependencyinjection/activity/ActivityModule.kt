@@ -1,5 +1,6 @@
 package com.android.a2mvcdandagger.common.dependencyinjection.activity
 
+import android.app.Activity
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.android.a2mvcdandagger.screens.common.dialogs.DialogsNavigator
@@ -11,12 +12,13 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 
 @Module
 @InstallIn(ActivityComponent::class)
 abstract class ActivityModule {
 
-    @ActivityScope
+    @ActivityScoped
     @Binds
     abstract  fun screenNavigator(screenNavigatorImpl: ScreenNavigatorImpl) : ScreenNavigator
 
@@ -24,6 +26,10 @@ abstract class ActivityModule {
     abstract  fun dialogNavigator(dialogsNavigatorImpl: DialogsNavigatorImpl) : DialogsNavigator
 
    companion object{
+
+       @Provides
+       fun appCompatActivity(activity: Activity): AppCompatActivity = activity as AppCompatActivity
+
        @Provides
        fun layoutInflater(activity: AppCompatActivity): LayoutInflater = LayoutInflater.from(activity)
 

@@ -7,6 +7,7 @@ import com.android.a2mvcdandagger.screens.common.activities.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 
+@AndroidEntryPoint
 class QuestionsListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
